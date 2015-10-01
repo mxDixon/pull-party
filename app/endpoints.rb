@@ -14,5 +14,8 @@ class App < Sinatra::Base
   end
 
   post '/github_listener' do
+      # create record for pull request if that's the notify
+      # if it's clsoe, update teh record to closed and notify
+      # else, ignore notify
   end
 end
