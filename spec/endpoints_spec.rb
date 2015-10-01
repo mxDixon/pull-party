@@ -1,4 +1,5 @@
 require 'rspec'
+require 'app/endpoints'
 
 describe App do
     describe 'POST /github_listener' do

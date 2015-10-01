@@ -1,6 +1,6 @@
 require 'pg'
 
-class pull_request
+class PullRequest
     def initialize
     end
 end
