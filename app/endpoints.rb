@@ -6,4 +6,7 @@ class App < Sinatra::Base
     params = request.body.read
     PullRequest.create(params)
   end
+
+  post '/github_listener' do
+  end
 end

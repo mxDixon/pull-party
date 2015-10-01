@@ -1,6 +1,7 @@
 require 'pg'
 require 'sequel'
 
+<<<<<<< HEAD
 module Db
   def self.settings
     {
@@ -41,4 +42,9 @@ class PullRequest < Sequel::Model(:pull_request)
   rescue Sequel::Error => e
     puts "error!: #{e.inspect}"
   end
+=======
+class PullRequest
+    def initialize
+    end
+>>>>>>> 8b33f927aa47489d77b61939efe074ead6875ccc
 end
