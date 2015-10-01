@@ -1,6 +1,5 @@
 require 'rspec'
 require_relative '../app/endpoints'
-
 describe App do
     describe 'POST /github_listener' do
         context 'receives a valid notification' do
