@@ -18,6 +18,8 @@ module Db
   else
     DB = Sequel.connect 'mock://postgres'
   end
+
+  DB.loggers << Logger.new($stdout)
 end
 
 class PullRequest < Sequel::Model(:pull_request)
