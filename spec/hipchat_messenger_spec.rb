@@ -1,16 +1,16 @@
 require 'rspec'
 require 'httparty'
+require 'webmock/rspec'
 require_relative '../app/hipchat_messenger'
 
 describe HipchatMessenger do
     describe '.notify' do
         it 'Pings the room when you send it a message' do
-            response = HipchatMessenger.notify('pull1')
-            puts response.to_yaml
-            puts response.code
-            response.code = 200
-            
-            expect(response.code).to eq(200)
+            stub_request(:post, /api.hipchat.com\/v2\/room/)
+              .to_return(:status => 204)
+            response = HipchatMessenger.notify('test success')
+
+            expect(response.code).to eq(204)
         end
     end
 
