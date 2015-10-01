@@ -14,6 +14,11 @@ module TestData
             "state": "open",
             "locked": false,
             "title": "Update the README with new information"
+          },
+          "repo": {
+              "id": 35129377,
+              "name": "public-repo",
+              "full_name": "baxterthehacker/public-repo"
           }
         }'
     end
@@ -33,6 +38,11 @@ module TestData
             "state": "closed",
             "locked": false,
             "title": "Update the README with new information"
+          },
+          "repo": {
+              "id": 35129377,
+              "name": "public-repo",
+              "full_name": "baxterthehacker/public-repo"
           }
         }'
     end
@@ -52,6 +62,11 @@ module TestData
             "state": "open",
             "locked": false,
             "title": "Update the README with new information"
+          },
+          "repo": {
+              "id": 35129377,
+              "name": "public-repo",
+              "full_name": "baxterthehacker/public-repo"
           }
         }'
     end
