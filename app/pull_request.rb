@@ -1,6 +1,5 @@
 require 'pg'
 require 'sequel'
-require 'logger'
 
 module Db
   def self.settings
@@ -19,6 +18,7 @@ module Db
   else
     DB = Sequel.connect 'mock://postgres'
   end
+
   DB.loggers << Logger.new($stdout)
 end
 
@@ -33,13 +33,17 @@ class PullRequest < Sequel::Model(:pull_request)
   end
 
   def self.retrieve(repo_name, pull_request_name)
-    PullRequest.select.where(:repo_name => repo_name, :pull_request_name => pull_request_name)
+    PullRequest.where(:repo_name => repo_name, :pull_request_name => pull_request_name)
   rescue Sequel::Error => e
     puts "error!: #{e.inspect}"
   end
 
-  def self.delete(id)
-    PullRequest.where(:id => id).delete
+  def self.delete(params)
+    if params.key?(:id)
+      PullRequest.where(:id => params[:id]).delete
+    else
+      PullRequest.where(:repo_name => repo_name, params[:repo_name] => params[:pull_request_name])
+    end
   rescue Sequel::Error => e
     puts "error!: #{e.inspect}"
   end
