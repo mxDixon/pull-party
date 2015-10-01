@@ -51,7 +51,7 @@ describe PullRequest do
     context 'It recieves valid arguments' do
       it 'returns the pull_request when it exists in the database' do
         pull_request = PullRequest.retrieve('My repo', 'My pull request')
-        puts pull_request.to_hash
+        puts pull_request.count
         expect(pull_request.pull_request_name).to eq('My pull request')
         expect(pull_request.repo_name).to eq('My repo')
       end
