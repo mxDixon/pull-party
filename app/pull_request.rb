@@ -30,7 +30,7 @@ class PullRequest < Sequel::Model(:pull_request)
     puts "error!: #{e.inspect}"
   end
 
-  def rself.etrieve(repo_name, pull_request_name)
+  def self.retrieve(repo_name, pull_request_name)
     PullRequest.where(:repo_name => repo_name, :pull_request_name => pull_request_name)
   rescue Sequel::Error => e
     puts "error!: #{e.inspect}"
