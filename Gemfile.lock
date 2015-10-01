@@ -2,6 +2,11 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    json (1.8.3)
+    multi_xml (0.5.5)
     pg (0.18.3)
     rack (1.6.4)
     rack-protection (1.5.3)
@@ -23,13 +28,8 @@ GEM
       rspec-support (~> 3.3.0)
     rspec-pride (3.1.0)
       rspec (~> 3.0)
-<<<<<<< HEAD
-    rspec-support (3.2.2)
-    sequel (4.26.0)
-=======
     rspec-support (3.3.0)
-    sequel (4.27.0)
->>>>>>> 8b33f927aa47489d77b61939efe074ead6875ccc
+    sequel (4.26.0)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -41,6 +41,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
+  httparty
   pg
   rack-test
   rake

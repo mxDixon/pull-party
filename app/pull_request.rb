@@ -21,7 +21,7 @@ module Db
 end
 
 class PullRequest < Sequel::Model(:pull_request)
-  def create(params)
+  def self.create(params)
     # if we pass in params that has this hash format we can just pass in the hash rather than all this craziness
     # like so:
     # PullRequest.insert(params)
@@ -30,13 +30,13 @@ class PullRequest < Sequel::Model(:pull_request)
     puts "error!: #{e.inspect}"
   end
 
-  def retrieve(pull_request_name, repo_name)
-    PullRequest.where(:pull_request_name => pull_request_name, :repo_name => repo_name)
+  def self.retrieve(repo_name, pull_request_name)
+    PullRequest.where(:repo_name => repo_name, :pull_request_name => pull_request_name)
   rescue Sequel::Error => e
     puts "error!: #{e.inspect}"
   end
 
-  def delete(id)
+  def self.delete(id)
     PullRequest.where(:id => id).delete
   rescue Sequel::Error => e
     puts "error!: #{e.inspect}"
