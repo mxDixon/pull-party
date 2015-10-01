@@ -1,6 +1,6 @@
 module TestData
     def github_pull_request_opened
-        {
+        '{
           "action": "opened",
           "number": 1,
           "pull_request": {
@@ -15,11 +15,11 @@ module TestData
             "locked": false,
             "title": "Update the README with new information"
           }
-        }
+        }'
     end
 
     def github_pull_request_closed
-        {
+        '{
           "action": "closed",
           "number": 1,
           "pull_request": {
@@ -34,11 +34,11 @@ module TestData
             "locked": false,
             "title": "Update the README with new information"
           }
-        }
+        }'
     end
 
     def github_pull_request_reopened
-        {
+        '{
           "action": "reopened",
           "number": 1,
           "pull_request": {
@@ -53,5 +53,6 @@ module TestData
             "locked": false,
             "title": "Update the README with new information"
           }
-        }
+        }'
     end
+end
