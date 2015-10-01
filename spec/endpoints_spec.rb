@@ -1,10 +1,17 @@
 require 'rspec'
+require 'rack/test'
 require_relative '../app/endpoints'
 require_relative 'test_data.rb'
 
 describe App do
+  include Rack::Test::Methods
+  include TestData
+  def app
+    App
+  end
+  
   describe 'POST /github_listener' do
-
+  
     before do
       stub_request(:post, /api.hipchat.com\/v2\/room/)
       .to_return(:status => 204)
@@ -12,25 +19,25 @@ describe App do
 
     context 'receives a pull request notification of open' do
       it 'creates entry for new pull request' do
-        post '/github_listener', TestData::github_pull_request_opened, {}
         expect(PullRequest).to receive(:create)
+        post '/github_listener', github_pull_request_opened, {}
       end
 
       it 'pushes notification to hipchat' do
-        post '/github_listener', TestData::github_pull_request_opened, {}
         expect(HipchatMessenger).to receive(:notify)
+        post '/github_listener', github_pull_request_opened, {}
       end
     end
 
     context 'receives a pull request notification of closed' do
       it 'creates entry for new pull request' do
-        post '/github_listener', TestData::github_pull_request_closed, {}
         expect(PullRequest).to receive(:delete).with()
+        post '/github_listener', github_pull_request_closed, {}
       end
 
       it 'pushes notification to hipchat' do
-        post '/github_listener', TestData::github_pull_request_closed, {}
         expect(HipchatMessenger).to receive(:notify)
+        post '/github_listener', github_pull_request_closed, {}
       end
     end
 
