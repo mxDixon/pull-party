@@ -1,4 +1,11 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in file_acquisition_api.gemspec
-gemspec
+  gem 'sinatra'
+  gem 'pg'
+  gem 'sequel'
+  gem 'bundler'
+  gem 'rake'
+  gem 'rspec'
+  gem 'rspec-pride'
+  gem 'rack-test'
+  gem 'httparty'

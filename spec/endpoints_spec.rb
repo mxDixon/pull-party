@@ -1,5 +1,5 @@
 require 'rspec'
-require 'app/endpoints'
+require_relative '../app/endpoints'
 
 describe App do
     describe 'POST /github_listener' do
@@ -9,7 +9,8 @@ describe App do
             end
 
             it 'pushes notification to hipchat' do
-
+                response = App.notify_hipchat
+                expect(response.status).to eq(200)
             end
         end
     end
